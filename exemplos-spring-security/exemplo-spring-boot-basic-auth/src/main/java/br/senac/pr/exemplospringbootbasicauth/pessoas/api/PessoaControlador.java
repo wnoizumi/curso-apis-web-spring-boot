@@ -1,5 +1,7 @@
-package br.senac.pr.exemplospringbootbasicauth;
+package br.senac.pr.exemplospringbootbasicauth.pessoas.api;
 
+import br.senac.pr.exemplospringbootbasicauth.pessoas.dominio.Pessoa;
+import br.senac.pr.exemplospringbootbasicauth.pessoas.dominio.PessoaRepositorio;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/pessoas")
 @AllArgsConstructor
-public class PessoaController {
+public class PessoaControlador {
 
     private PessoaRepositorio pessoaRepositorio;
 

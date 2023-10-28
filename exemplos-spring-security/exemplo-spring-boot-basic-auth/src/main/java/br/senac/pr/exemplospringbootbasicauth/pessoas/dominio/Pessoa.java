@@ -1,4 +1,4 @@
-package br.senac.pr.exemplospringbootbasicauth;
+package br.senac.pr.exemplospringbootbasicauth.pessoas.dominio;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

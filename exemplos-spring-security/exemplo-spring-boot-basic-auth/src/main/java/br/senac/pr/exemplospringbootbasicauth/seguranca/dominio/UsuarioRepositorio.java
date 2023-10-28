@@ -1,5 +1,6 @@
-package br.senac.pr.exemplospringbootbasicauth;
+package br.senac.pr.exemplospringbootbasicauth.seguranca.dominio;
 
+import br.senac.pr.exemplospringbootbasicauth.seguranca.dominio.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

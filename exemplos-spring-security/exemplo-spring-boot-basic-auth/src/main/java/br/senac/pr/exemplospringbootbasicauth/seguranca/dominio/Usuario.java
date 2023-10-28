@@ -1,4 +1,4 @@
-package br.senac.pr.exemplospringbootbasicauth;
+package br.senac.pr.exemplospringbootbasicauth.seguranca.dominio;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

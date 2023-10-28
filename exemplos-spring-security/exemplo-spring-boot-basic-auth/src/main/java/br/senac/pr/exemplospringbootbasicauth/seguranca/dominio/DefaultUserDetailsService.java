@@ -1,4 +1,4 @@
-package br.senac.pr.exemplospringbootbasicauth;
+package br.senac.pr.exemplospringbootbasicauth.seguranca.dominio;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.User;
