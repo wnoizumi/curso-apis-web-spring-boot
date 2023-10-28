@@ -1,13 +1,16 @@
 package br.senac.pr.exemplospringbootbasicauth.seguranca.dominio;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Usuario {
 
     @Id
@@ -15,7 +18,10 @@ public class Usuario {
     private long id;
 
     @Column(nullable = false, unique = true)
-    private String username;
+    private String usuario;
     @Column(nullable = false)
-    private String password;
+    private String senha;
+
+    @Enumerated(EnumType.STRING)
+    private Papel papel;
 }

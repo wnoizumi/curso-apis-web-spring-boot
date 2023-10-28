@@ -9,17 +9,16 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 @AllArgsConstructor
 public class DefaultUserDetailsService implements UserDetailsService {
 
-    public static final String USUARIO_ROLE = "USUARIO";
     private UsuarioRepositorio usuarioRepositorio;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         if (username != null && !username.isBlank()) {
-            var usuario = usuarioRepositorio.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Not Found"));
+            var usuario = usuarioRepositorio.findByUsuario(username).orElseThrow(() -> new UsernameNotFoundException("Not Found"));
             return User.builder()
-                .username(usuario.getUsername())
-                .password(usuario.getPassword())
-                .roles(USUARIO_ROLE)
+                .username(usuario.getUsuario())
+                .password(usuario.getSenha())
+                .roles(usuario.getPapel().name())
                 .build();
         }
 
