@@ -27,25 +27,35 @@ import static org.springframework.security.web.util.matcher.AntPathRequestMatche
 public class ConfiguracaoSecurity {
     @Bean
     public PasswordEncoder myEncoder(){
+        //Define o algoritmo de criptografia para as senhas
         return new BCryptPasswordEncoder(12);
     }
 
     @Bean
     public UserDetailsService userDetailsService(UsuarioRepositorio usuarioRepositorio) throws Exception {
+        //Define o objeto que sera utilizado para buscar o usuario durante a autenticacao
         return new DefaultUserDetailsService(usuarioRepositorio);
     }
     @Bean
     public SecurityFilterChain myFilterChain(HttpSecurity http) throws Exception {
+        //Define as configuracoes de seguranca
         http
+                //configuracao referente a Cross-site Request Forgery (CSRF)
                 .csrf(AbstractHttpConfigurer::disable)
+                //configuracao referente a Cross-Origin Resource Sharing (CORS)
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests((authz) -> authz
+                        //permitAll() == acesso sem autenticacao
                         .requestMatchers(antMatcher("/publico/**")).permitAll()
+                        //hasAnyRole(...) == autoriza apenas usuarios que tenham os papeis listados
                         .requestMatchers(antMatcher("/geral/**")).hasAnyRole(getNomesPapeis())
                         .requestMatchers(antMatcher("/restrito/**")).hasAnyRole(ADMIN.name(), GERENTE.name())
+                        //hasRole(...) == autoriza apenas usuarios que tenham o unico papel especificado
                         .requestMatchers(antMatcher("/admin/**")).hasRole(ADMIN.name())
+                        //requer autenticacao para qualquer url, exceto aquelas definidas como permitAll()
                         .anyRequest().authenticated()
                 )
+                //Desabilita o controle de secao (ou seja, cada requisicao deve ser autenticada novamente)
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .httpBasic(Customizer.withDefaults());
         return http.build();
