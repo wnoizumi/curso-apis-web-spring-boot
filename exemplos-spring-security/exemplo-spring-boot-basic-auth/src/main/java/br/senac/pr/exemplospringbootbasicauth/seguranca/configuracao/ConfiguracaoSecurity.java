@@ -1,7 +1,6 @@
 package br.senac.pr.exemplospringbootbasicauth.seguranca.configuracao;
 
 import br.senac.pr.exemplospringbootbasicauth.seguranca.dominio.DefaultUserDetailsService;
-import br.senac.pr.exemplospringbootbasicauth.seguranca.dominio.Papel;
 import br.senac.pr.exemplospringbootbasicauth.seguranca.dominio.UsuarioRepositorio;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,12 +13,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-
-import java.util.Arrays;
 
 import static br.senac.pr.exemplospringbootbasicauth.seguranca.dominio.Papel.*;
-import static br.senac.pr.exemplospringbootbasicauth.seguranca.dominio.Papel.GERENTE;
 import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
 
 @Configuration

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.senac.pr</groupId>
-	<artifactId>exemplo-spring-boot-basic-auth</artifactId>
+	<artifactId>exemplospringbootbasicauth</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>exemplo-spring-boot-basic-auth</name>
+	<name>exemplospringbootbasicauth</name>
 	<description>Exemplo de projeto utilizando o Spring Boot com HTTP Basic Auth </description>
 	<properties>
 		<java.version>17</java.version>
